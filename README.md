@@ -11,3 +11,22 @@
 - Code Spliting
 - Diagnostics
 - Tree Shaking
+
+
+# Layout
+
+/*
+AppLayout
+   -Header
+        -Logo
+        -Nav
+   -Body
+        -Search
+        -RestorauntContainer
+          -RestorauntCard
+   -Footer
+        -Links
+        -Contact
+        -Address
+        -Copyright
+*/

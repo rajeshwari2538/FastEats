@@ -1,22 +1,3 @@
-import React from "react";
-import ReactDOM  from "react-dom/client";
-
-
-/*
-AppLayout
-   -Header
-        -Logo
-        -Nav
-   -Body
-        -Search
-        -RestorauntContainer
-          -RestorauntCard
-   -Footer
-        -Links
-        -Contact
-        -Address
-        -Copyright
-*/
 
 const restoList = [
     {
@@ -36,7 +17,7 @@ const restoList = [
             name: "Domino's Pizza",
             cuisines: ["Pizzas","Italian"],
             img: "https://b.zmtcdn.com/data/pictures/chains/6/18732986/fe0435cd1d26e63b2cc20df854e20992.jpg?fit=around|960:500&crop=960:620;*,*",
-            avgRating: 4.5,
+            avgRating: 3.9,
             costForTwo: "400",
             delivaryIn: 25,
         }
@@ -47,7 +28,7 @@ const restoList = [
             name: "Nandhana Palace",
             cuisines: ["Biryani", "Andhra"],
             img: "https://media-cdn.tripadvisor.com/media/photo-s/1c/b7/c6/de/food.jpg",
-            avgRating: 4.2,
+            avgRating: 4.0,
             costForTwo: "500",
             delivaryIn: 20,
         }
@@ -58,7 +39,7 @@ const restoList = [
             name: "Leon's - Burgers & Wings (Leon Grill)",
             cuisines: ["American", "Snacks"],
             img: "https://b.zmtcdn.com/data/pictures/9/18597729/d25388fb3824bdeb47718c68b7c2f88b.jpg",
-            avgRating: 4.5,
+            avgRating: 2.9,
             costForTwo: "300",
             delivaryIn: 22,
         }
@@ -80,7 +61,7 @@ const restoList = [
             name: "Truffles",
             cuisines: ["American", "Continental"],
             img: "https://b.zmtcdn.com/data/pictures/chains/9/51039/99b002b985def493b463c925ba4c70f6.jpg",
-            avgRating: 4.5,
+            avgRating: 3.7,
             costForTwo: "450",
             delivaryIn: 24,
         }
@@ -102,7 +83,7 @@ const restoList = [
             name: "Zaitoon",
             cuisines: ["Arabian", "Biryani"],
             img: "https://b.zmtcdn.com/data/pictures/chains/3/54123/511bd6538a10b7799bb1e3779cd9ec63.jpg",
-            avgRating: 4.4,
+            avgRating: 3.9,
             costForTwo: "500",
             delivaryIn: 26,
         }
@@ -113,7 +94,7 @@ const restoList = [
             name: "Pizza Hut",
             cuisines: ["Pizzas"],
             img: "https://im1.dineout.co.in/images/uploads/restaurant/sharpen/4/q/x/p49-1493902576590b24f0cacb9.jpg?tr=tr:n-large",
-            avgRating: 4.1,
+            avgRating: 4.0,
             costForTwo: "300",
             delivaryIn: 26,
         }
@@ -124,71 +105,11 @@ const restoList = [
             name: "Istah - The Mediterranean Way",
             cuisines: ["Mediterranean", "Snacks"],
             img: "https://b.zmtcdn.com/data/pictures/chains/7/18486567/b7bce72e6e5836319eee6c5faa660a21.jpg?fit=around|960:500&crop=960:500;*,*",
-            avgRating: 4.5,
+            avgRating: 3.5,
             costForTwo: "250",
             delivaryIn: 25,
         }
     },
 ]
 
-const Header = () => {
-    return(
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png" alt="logo" />
-            </div>
-            <div className="nav-items">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    )
-}
-
-const Body = () => {
-    return(
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="restaurant-container">
-                {
-                    restoList.map((resto) => (
-                        <RestaurantCard restoData={resto} key={resto.data.id}/>
-                    ))
-                }
-            </div>
-        </div>
-    )
-}
-
-const RestaurantCard = (props) => {
-    const {restoData} = props;
-    return (
-        <div className="resto-card">
-            <img 
-            className="resto-img" alt="resto-logo"
-            src={restoData.data.img}/>
-            <h3>{restoData.data.name}</h3>
-            <h4>{restoData.data.cuisines.join(", ")}</h4>
-            <h4>{restoData.data.avgRating} Stars</h4>
-            <h4>₹{restoData.data.costForTwo} For Two</h4>
-            <h4>{restoData.data.delivaryIn} mins</h4>
-        </div>
-    )
-}
-
-const AppLayout = () => {
-    return(
-        <div className="app">
-            <Header />
-            <Body />
-            
-        </div>
-    )
-}
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default restoList;
