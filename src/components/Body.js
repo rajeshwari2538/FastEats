@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 
 import { resList } from "../utils/mockData";
@@ -52,12 +51,12 @@ export const Body = () => {
   
   //whenever we change a state variable , the whole component is re rendered by React
   return  (
-    <div className="mt-2 mx-auto w-[75%] ">
+    <div className="mt-2 mx-auto w-[80%] md:w-[75%] ">
       {/* Search bar and Top Rated */}
-      <div className="flex justify-evenly gap-2 m-12">
+      <div className="flex justify-evenly gap-1 md:gap-2 my-10 md:m-12">
         <input
           type="text"
-          className="focus:outline-none w-6/12 border-2 border-solid p-2 rounded-md"
+          className="focus:outline-none w-28 md:w-6/12 border-2 px-2 text-xs md:text-xl border-solid md:p-2 rounded-md"
           placeholder="Search by restaurant name"
           value={searchText}
           onChange={(e) => {
@@ -66,15 +65,15 @@ export const Body = () => {
         />
 
         <button
-          className=" w-1/12 bg-orange-400 text-white p-1 sm:p-2  rounded-md"
+          className="px-3 md:w-1/12 bg-orange-400 text-white p-1 sm:p-2  rounded-md"
           onClick={handleSearch}
         >
           <MagnifyingGlassIcon className="w-3 h-3 sm:w-5 sm:h-5 font-bold" />
         </button>
-        <div className="w-5/12">
+        <div className="w-full md:w-5/12">
           {!showTopRated ? (
             <button
-              className=" bg-white  text-black-heading border font-primary font-semibold border-gray-400 sm:ml-4 text-xs sm:text-sm p-1 sm:p-2 rounded-lg "
+              className=" bg-white text-xs md:text-xl text-black-heading border font-primary font-semibold border-gray-400 p-1 rounded-lg "
               onClick={filterTopRated}
             >
               Top Rated Restaurants
