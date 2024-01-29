@@ -13,7 +13,7 @@ const Contact=()=>{
     
     return (
         
-            <div className='my-24 md:w-[600]  py-10 bg-gray-200 px-10 md:ml-[30%] md:mt-[8%] mt-[20%] w-[400] ml-[10%]'>
+            <div className='my-24 md:w-[60%] md:mx-auto mx-auto w-[83%]  py-10 bg-gray-200 md:px-32 px-4 md:mt-[8%] mt-[20%]'>
               <h1 className='text-lg md:text-2xl my-4 font-bold'>Contact</h1>
               <div>
                 <h2 className='text-md md:text-xl font-semibold'>Hi 👋, I'm {details.name} 👩‍💻</h2>
