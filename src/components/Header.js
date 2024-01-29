@@ -16,8 +16,6 @@ export const Header = () => {
     ><img className='cursor-pointer  w-full' src={require("../assets/FastEats.png")}></img>
      <span className='hidden sm:block sm:text-lg logo text-orange-400 sm:tracking-wider italic sm:ml-1'>FASTEATS</span>
     </Link>
-       
-            
             </div>
             <div> 
             <ul className='flex md:mr-10 md:flex-row px-3'>
