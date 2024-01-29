@@ -23,7 +23,6 @@ export const Header = () => {
                 <li className='p-1 mx-5 md:px-2 md:mx-5 md:py-4 hover:text-orange-400 cursor-pointer text-[15px]  md:text-lg sm:text-sm  font-primary font-bold'><Link className='link_res' to="/about">About us</Link></li>
                 <li className='p-1 mx-5 md:px-2 md:mx-5 md:py-4 hover:text-orange-400 cursor-pointer text-[15px] md:text-lg sm:text-sm  font-primary font-bold'><Link  className='link_res' to="/contact">Contact us</Link></li>
                 <li className='p-1 mx-5 md:px-2 md:mx-5 md:py-4 hover:text-orange-400 cursor-pointer text-[15px] md:text-lg sm:text-sm  font-primary font-bold'><Link className='link_res' to="/cart">Cart</Link>{cartItems.length>0 && <div className='block ml-5 md:ml-10 sm:ml-16 bg-orange-400 text-[8px] text-white sm:px-2 px-1  rounded-[50%] sm:-mt-10 -mt-[1.6rem] sm:text-[12px]'>{cartItems.length}</div>}</li>
-                
              </ul>
              
              </div>
