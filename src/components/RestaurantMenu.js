@@ -1,46 +1,63 @@
-import { useEffect,useState } from "react";
-import {Shimmer} from "./Shimmer";
+
+import ShimmerRestaurant from "./ShimmerRestaurant";
 import { useParams } from "react-router-dom";
-import { MENU_API } from "../utils/common";
-import RestaurantCategory from "./RestaurantCategory";
-
+import useRestaurantMenu from "../utils/useRestaurantMenu";
+import RestaurantMenuCategory from "./RestaurantMenuCategory";
+import { StarIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
 const RestaurantMenu = () => {
-    const [resInfo, setResInfo] = useState(null);
+  const { resId} = useParams();
+  const {resInfo,isLoading,error} = useRestaurantMenu(resId);
+  const [showIndex,setShowIndex]=useState(null);
+  if (!resInfo) return <ShimmerRestaurant />;
+  const {
+    name,
+    cuisines,
+    sla,
+    areaName,
+    totalRatingsString,
+    avgRating,
+  } = resInfo?.cards[0]?.card?.card?.info;
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+      c?.card?.card?.["@type"].endsWith("v2.ItemCategory")
+    );
+   // console.log(resInfo?.cards[0]?.card?.card?.info)
+    //console.log(categories)
 
-    const {resId} = useParams();
+  return (!isLoading && <div className="flex justify-center my-8 min-h-screen">
+  <div className=" w-11/12   sm:w-9/12 md:w-6/12">
+    <div className="flex justify-between">
+    <div className="flex flex-col ">
+      <div>
+        <h2 className="text-lg sm:text-xl md:text-2xl font-primary font-bold text-black-heading">
+          {name}
+        </h2>
+        <p className="text-[12px] md:text-sm font-primary text-gray-400 ">
+          {cuisines.join(" ,")}
+        </p>
+        <p className="text-[12px] md:text-sm text-gray-400">
+          {areaName}, {sla.lastMileTravelString}
+        </p>
+      </div>
+    </div>
+    <div className="flex flex-col border border-gray px-2 py-1 rounded-md mr-3">
+      <p className="text-center"><span className='sm:inline-block '><StarIcon className='w-4 text-sm h-4  md:w-6 md:h-6 inline-block text-green-500 mb-1' />{' '}</span><span className='lg:pl-[8] text-sm md:text-lg  font-bold text-green-500'>{avgRating}</span></p>
+      <hr className="px-2 mt-1"></hr>
+      <p className="text-xs md:text-sm text-gray-500 p-1">{totalRatingsString}</p>
+    </div>
+    </div>
+    <div className="mt-10">
+      {
+        categories.map((item,index)=><RestaurantMenuCategory key={item?.card?.card?.title} data={item} setShowIndex={()=>setShowIndex(index)} isExpanded={index==showIndex?true:false}/>)
+      }
+    </div>
+  </div>
 
-    const [showIndex,setShowIndex] = useState(null);
+  
+</div>
 
-    useEffect(()=>{
-        fetchMenu()
-    },[])
-
-    const fetchMenu = async () => {
-        const data = await fetch(MENU_API + resId);
-        const json = await data.json();
-        setResInfo(json.data);
-    }
-
-    if(resInfo === null) return <Shimmer />
-    const {name,cuisines,costForTwoMessage} = resInfo?.cards[0]?.card?.card?.info;
-
-    //const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
-
-    const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR.cards.filter(c => c.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-    //console.log(categories);
-    return(
-        <div className="text-center">
-            <h1 className="font-bold my-6 text-2xl">{name}</h1>
-            <p className="font-bold text-lg">{cuisines.join(", ")} - {costForTwoMessage}</p>
-            {categories.map((category,index)=>
-             <RestaurantCategory 
-              key={category?.card?.card?.title}
-            data={category?.card?.card}
-            showItems = {index === showIndex ? true : false}
-            setShowIndex = {()=>setShowIndex(index)}
-            />)}
-        </div>
-    )
-}
+  );
+};
 
 export default RestaurantMenu;

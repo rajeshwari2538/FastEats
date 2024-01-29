@@ -1,5 +1,5 @@
 
-const ContactUs=()=>{
+const Contact=()=>{
     const details = {
         name: 'Rajeshwari Gadagi',
         bio: 'Frontend Developer',
@@ -53,4 +53,4 @@ const ContactUs=()=>{
           );
     
 }
-export default ContactUs;
+export default Contact;

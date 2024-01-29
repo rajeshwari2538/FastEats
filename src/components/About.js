@@ -5,7 +5,7 @@ const About = () => {
     <div className="min-h-screen text-left ">
       <div class="container mx-auto my-8 p-8 bg-white shadow-lg  border border-gray-300 rounded-lg">
         <h1 class="text-3xl font-bold mb-6">
-          🍴 FastEats: Amplify Your Dining Enjoyment
+          🍴 FastEats: Delicious meals delivered to your door. Order now! Eat well, effortlessly.
         </h1>
 
         <p class="text-lg mb-6">
