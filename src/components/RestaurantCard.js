@@ -14,11 +14,11 @@ export const RestaurantCard = (props) => {
         areaName,
       } = resData.info;
   return (
-    <div className=" hover:scale-95 origin-center transition-all duration-100 ease-in" >
+    <div className=" hover:scale-95 my-2 origin-center transition-all duration-100 ease-in" >
       <div className='overlay-container'>
-      <img src={RES_CDN_URL + cloudinaryImageId}  alt='restaurant' className='w-full  overflow-hidden   rounded-2xl block  shadow-lg  bg-center bg-no-repeat' />
+      <img src={RES_CDN_URL + cloudinaryImageId}  alt='restaurant' className='w-full  overflow-hidden rounded-2xl block shadow-lg bg-center bg-no-repeat' />
       <div className='overlay w-full rounded-md p-2 px-3 '>
-          <p className='lg:text-xl md:text-sm text-xs font-bold flex gap-2 flex-wrap'>
+          <p className='md:text-xl text-xs font-bold flex gap-2 flex-wrap'>
             {aggregatedDiscountInfoV3?.header
               ? aggregatedDiscountInfoV3.header
               : ''}{' '}
@@ -28,15 +28,15 @@ export const RestaurantCard = (props) => {
           </p>
         </div>
       </div>
-      <h2 className='mx-2 my-1 font-bold  text-lg sm:text-xl font-primary text-black-rgba'>{name.length>25?name.slice(0,25)+"..":name}</h2>
-      <h2 className='mx-2 my-1 font-bold  text-sm sm:text-lg sm:leading-3 font-primary text-black-rgba'>
+      <h2 className='mx-2 my-1 font-bold md:text-xl text-sm font-primary text-black-rgba'>{name.length>25?name.slice(0,25)+"..":name}</h2>
+      <h2 className='mx-2 my-1 font-bold  text-xs sm:text-lg sm:leading-3 font-primary text-black-rgba'>
      <span className='mb-1'><RatingSvg /></span>
      <span className="inline-block ml-1">{" "+avgRating}</span>
      <span> · </span>
      <span>{sla?.slaString}</span>
       </h2>
-      <h5 className='ml-4 font-primary text-gray-500 text-xs sm:leading-5 sm:text-[18px]'>{cuisines?.join(", ").length>25?cuisines?.join(", ").slice(0,26)+'...':cuisines?.join(", ")}</h5>
-      <h6 className='ml-4 font-primary text-gray-500 text-xs sm:leading-5  sm:text-[18px]'>{areaName}</h6>
+      <h5 className='ml-4 font-primary text-gray-500 text-xs md:text-md sm:leading-5'>{cuisines?.join(", ").length>25?cuisines?.join(", ").slice(0,26)+'...':cuisines?.join(", ")}</h5>
+      <h6 className='ml-4 font-primary text-gray-500 text-xs md:text-md sm:leading-5'>{areaName}</h6>
      
     </div>
   )
