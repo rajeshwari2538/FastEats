@@ -1,6 +1,6 @@
 import { ChevronDownIcon ,ChevronUpIcon} from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { CDN_URL, RES_CDN_URL } from "../utils/constants";
+import { RES_CDN_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import {addItems} from "../utils/slices/cartSlice"
 const RestaurantMenuCategory =(props)=>{
@@ -21,7 +21,7 @@ const RestaurantMenuCategory =(props)=>{
     return (
         <div className="cursor-pointer" >
         <div className="flex justify-between bg-slate-100 mt-3 p-5 rounded-lg sm:w-full" onClick={handleExpand}>
-            <div className="text-[12px] md:text-xl sm:text-lg text-lg font-primary font-bold text-black-heading">{title} ({itemCards.length})</div>
+            <div className="md:text-xl text-md font-primary font-bold text-black-heading">{title} ({itemCards.length})</div>
             <div >{isExpanded && toggleExpand?<ChevronUpIcon className='w-6 h-6 text-xl'/>:<ChevronDownIcon className='w-6 h-6 text-xl'/>}</div>
             </div>
            { isExpanded && toggleExpand &&<div className="bg-white">
@@ -35,8 +35,8 @@ const RestaurantMenuCategory =(props)=>{
                             
                             <img src={item?.card?.info?.itemAttribute?.vegClassifier==='VEG' ?require('../assets/veg.png'):require('../assets/non-veg.png')} alt='' className="w-10 bg-center h-9 p-1 rounded-lg" />}    
                             
-                             <p className="p-1  md:text-2xl sm:text-xl text-lg font-primary font-bold text-black-heading">{item?.card?.info?.name}</p>
-                             <p className="p-1 text-black-heading font-bold md:text-2xl sm:text-xl text-lg">₹{item?.card?.info?.price/100||item?.card?.info?.defaultPrice/100}</p>
+                             <p className="p-1  md:text-2xl sm:text-xl text-md font-primary font-bold text-black-heading">{item?.card?.info?.name}</p>
+                             <p className="p-1 text-black-heading font-bold md:text-2xl sm:text-xl text-md">₹{item?.card?.info?.price/100||item?.card?.info?.defaultPrice/100}</p>
                              <p className="p-1 hidden md:block mt-2 text-black-400 text-sm">{item?.card?.info?.description}</p>
                              </div>
                              <div className=" md:basis-4/12 basis-5/12  w-full space-y-2 p-2 relative">

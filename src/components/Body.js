@@ -96,7 +96,7 @@ export const Body = () => {
         </div>
         <hr className="border-t border-gray-300 my-4" />
         {/* Restaurant list */}
-        <h2 className="font-primary font-extrabold  text-xl md:text-2xl  text-black-heading self-start">
+        <h2 className="font-primary font-extrabold  text-lg md:text-2xl  text-black-heading self-start">
          {localStorage.getItem('address')?"Restaurants near you ":"Restaurants in Bangalore"} 
         </h2>
         <RestaurantList filteredList={filteredList} isLoading={isLoading} />

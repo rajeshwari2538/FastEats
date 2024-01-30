@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { CDN_URL, RES_CDN_URL } from "../utils/constants";
+import { RES_CDN_URL } from "../utils/constants";
 import {
   clearCart,
   increaseItemQuantity,
@@ -41,16 +41,16 @@ const Cart = () => {
 
   if (cartItems.length == 0) {
     return (
-      <div className="items-center flex flex-col  container-max min-h-screen justify-center">
+      <div className="items-center flex flex-col mt-[25%] mb-[75%] md:mt-[15%] md:mb-[10%] justify-center">
         <div>
-        <p className=" text-3xl font-semibold font-primary my-auto">
-          Such empty...
+        <p className="text-lg md:text-3xl font-semibold font-primary my-auto">
+          Empty Cart...
          
         </p>
         </div>
         <div>
         <Link to="/">
-          <button className="p-4 mt-4 font-bold bg-orange-400 text-white block text-xl rounded-lg">
+          <button className="p-4 mt-4 font-bold bg-orange-400 text-white block text-md md:text-xl rounded-lg">
             EXPLORE RESTAURANTS NEAR YOU
           </button>
         </Link>
@@ -63,12 +63,12 @@ const Cart = () => {
     <div className="justify-center">
       <div className="flex flex-col w-full lg:w-10/12 md:flex-row md:max-h-screen  md:justify-center mx-auto    ">
         <div className="w-full md:w-7/12 md:overflow-y-auto example  md:mt-10">
-          <div className="flex justify-between">
-            <p className=" text-xl sm:text-3xl font-bold font-primary m-2 p-2">
+          <div className="flex justify-between mt-[5%] mb-[2%]">
+            <p className=" text-lg md:text-2xl font-bold font-primary m-2 p-2">
               Cart
             </p>
             <button
-              className="text-white bg-black rounded-lg p-2 m-2 "
+              className="text-white md:text-xl bg-black rounded-lg p-2 m-2 "
               onClick={handleClear}
             >
               Clear cart
@@ -127,11 +127,11 @@ const Cart = () => {
                             : require("../assets/non-veg.png")
                         }
                         alt=""
-                        className="sm:w-10 w-6 h-7 bg-center sm:h-9 p-1 rounded-lg"
+                        className="sm:w-10 w-8 h-7 bg-center sm:h-9 p-1 rounded-lg"
                       />
                     )}
 
-                    <p className="p-1 text-sm sm:text-xl font-primary font-bold text-black-heading">
+                    <p className="p-1 text-md sm:text-xl font-primary font-bold text-black-heading">
                       {item?.item?.card?.info?.name}
                     </p>
                     <p className="p-1 text-black-heading font-bold  text-xs sm:text-lg">
@@ -147,7 +147,7 @@ const Cart = () => {
                     </p>
 
                     <button
-                      className="p-2 mt-14 sm:mt-8 md:mt-7 lg:mt-7 float-right bg-white text-orange-400 border-2 rounded-lg font-bold border-orange-400 hover:text-white hover:bg-orange-400"
+                      className="text-md p-2 mt-14 sm:mt-8 md:mt-7 lg:mt-7 float-right bg-white text-orange-400 border-2 rounded-lg font-bold border-orange-400 hover:text-white hover:bg-orange-400"
                       onClick={() =>
                         removeItemFromCart(item?.item?.card?.info?.id)
                       }
@@ -162,44 +162,44 @@ const Cart = () => {
           })}
         </div>
         {/* Price card */}
-        <div className=" w-11/12 mx-5 md:w-5/12  md:h-min md:mx-5 border border-gray bg-white rounded-lg shadow-lg my-2  sm:mx-8  ">
+        <div className=" w-11/12 mx-5 md:w-5/12 mb-[15%] md:h-min md:mx-5 border border-gray bg-white rounded-lg shadow-lg my-2  sm:mx-8  ">
           <div className="sm:p-8 p-4">
-            <h1 className="font-primary font-bold text-2xl text-black ml-2">
+            <h1 className="font-primary font-bold text-lg md:text-2xl text-black ml-2">
               Order Summary
             </h1>
             <hr className="my-4 mx-2 p-2"></hr>
 
             <div className="flex justify-between mx-3 my-3">
-              <p className="text-xl font-normal">
+              <p className="md:text-xl text-md font-normal">
                 Price ({cartItems.length} items)
               </p>
-              <p className="text-xl font-semibold">₹ {total}</p>
+              <p className="md:text-xl text-md font-semibold">₹ {total}</p>
             </div>
             <div className="flex justify-between mx-3 my-4">
-              <p className="text-xl font-normal">Discount (10%)</p>
-              <p className="text-xl font-semibold">
+              <p className="md:text-xl text-md font-normal">Discount (10%)</p>
+              <p className="md:text-xl text-md font-semibold">
                 -₹ {(0.1 * total).toFixed(2)}
               </p>
             </div>
             <div className="flex justify-between mx-3 my-4">
-              <p className="text-xl font-normal">Delivery charges (5%)</p>
-              <p className="text-xl font-semibold">
+              <p className="md:text-xl text-md font-normal">Delivery charges (5%)</p>
+              <p className="md:text-xl text-md font-semibold">
                 +₹ {(0.05 * total).toFixed(2)}
               </p>
             </div>
-            <p className="mx-3 my-1">
+            <p className="mx-3 my-1 text-md md:text-xl">
               {" "}
               You'll save ₹{(0.1 * total).toFixed(2)} on this order 🎉
             </p>
             <hr className="mt-4 mx-2 p-2"></hr>
             <div className="flex justify-between mx-3">
-              <p className=" text-2xl lg:text-3xl font-primary font-bold">Total Amount</p>
-              <p className=" text-2xl lg:text-3xl font-bold">
+              <p className=" text-lg md:text-2xl font-primary font-bold">Total Amount</p>
+              <p className=" text-lg md:text-2xl font-bold">
                 ₹ {(total - 0.1 * total + 0.05 * total).toFixed(2)}
               </p>
             </div>
             <hr className="my-4 mx-2 p-2"></hr>
-            <button className="w-full p-4 mx-auto font-bold bg-orange-400 text-white text-xl rounded-lg">
+            <button className="w-full p-4 mx-auto font-bold bg-orange-400 text-white text-md md:text-xl rounded-lg">
               PLACE ORDER
             </button>
           </div>

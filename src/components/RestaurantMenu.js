@@ -30,7 +30,7 @@ const RestaurantMenu = () => {
     <div className="flex justify-between">
     <div className="flex flex-col ">
       <div>
-        <h2 className="text-lg sm:text-xl md:text-2xl font-primary font-bold text-black-heading">
+        <h2 className="text-lg md:text-2xl font-primary font-bold text-black-heading">
           {name}
         </h2>
         <p className="text-[12px] md:text-sm font-primary text-gray-400 ">

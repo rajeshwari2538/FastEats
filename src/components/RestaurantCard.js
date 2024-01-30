@@ -35,8 +35,8 @@ export const RestaurantCard = (props) => {
      <span> · </span>
      <span>{sla?.slaString}</span>
       </h2>
-      <h5 className='ml-4 font-primary text-gray-500 text-xs md:text-md sm:leading-5'>{cuisines?.join(", ").length>25?cuisines?.join(", ").slice(0,26)+'...':cuisines?.join(", ")}</h5>
-      <h6 className='ml-4 font-primary text-gray-500 text-xs md:text-md sm:leading-5'>{areaName}</h6>
+      <h5 className='ml-4 font-primary text-gray-500 text-xs md:text-lg sm:leading-5'>{cuisines?.join(", ").length>25?cuisines?.join(", ").slice(0,26)+'...':cuisines?.join(", ")}</h5>
+      <h6 className='ml-4 font-primary text-gray-500 text-xs md:text-lg sm:leading-5'>{areaName}</h6>
      
     </div>
   )
