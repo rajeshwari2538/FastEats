@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-
-import { resList } from "../utils/mockData";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 import Carousel from "./Carousel";

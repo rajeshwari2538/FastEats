@@ -40,7 +40,7 @@ const About = () => {
               </li>
               <li class="mb-2 md:text-lg text-xs">
               <span className="font-bold">Fully Responsive Design:</span> Whether on a smartphone, tablet, or
-                desktop, Munchmate adapts seamlessly to provide an optimal
+                desktop, FastEats adapts seamlessly to provide an optimal
                 viewing experience.
               </li>
             </ul>
