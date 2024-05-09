@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestaurantMenu";
 import RestaurantMenuCategory from "./RestaurantMenuCategory";
 import { StarIcon } from "@heroicons/react/24/outline";
-import { useState } from "react";
+import { useState } 
+from "react";
 const RestaurantMenu = () => {
   const { resId} = useParams();
   const {resInfo,isLoading,error} = useRestaurantMenu(resId);
@@ -17,12 +18,12 @@ const RestaurantMenu = () => {
     areaName,
     totalRatingsString,
     avgRating,
-  } = resInfo?.cards[0]?.card?.card?.info;
+  } = resInfo?.cards[2]?.card?.card?.info;
   const categories =
-    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
       c?.card?.card?.["@type"].endsWith("v2.ItemCategory")
     );
-   // console.log(resInfo?.cards[0]?.card?.card?.info)
+    //console.log(resInfo?.cards[0]?.card?.card?.info)
     //console.log(categories)
 
   return (!isLoading && <div className="flex justify-center my-8 min-h-screen">
